@@ -6,7 +6,7 @@ export default defineConfig({
     host: true, // allows LAN access
     port: 5173,
     allowedHosts: [
-      'acetated-hannelore-germinatively.ngrok-free.dev', // add your ngrok host
+      'https://pokemon-card-shop-omega.vercel.app', // add your ngrok host
     ],
     // https: {
     //   key: fs.readFileSync("./cert/vite.key"),   // your private key

@@ -21,7 +21,7 @@ export function renderCards(cards) {
             class="snipcart-add-item"
             data-item-id="${card.id}"
             data-item-price="${card.price}"
-            data-item-url="https://acetated-hannelore-germinatively.ngrok-free.dev/"
+            data-item-url="https://pokemon-card-shop-omega.vercel.app/"
             data-item-description="${card.rarity}, ${card.condition}"
             data-item-image="${card.images[0]}"
             data-item-name="${card.name}"
