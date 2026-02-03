@@ -3,14 +3,28 @@ import fs from "fs";
 
 export default defineConfig({
   server: {
-    host: true, // allows LAN access
-    port: 5173,
     allowedHosts: [
-      'https://pokemon-card-shop-omega.vercel.app', // add your ngrok host
+      'acetated-hannelore-germinatively.ngrok-free.dev', // ngrok dev testing environment
+      'https://pokemon-card-shop-omega.vercel.app', // vercel prod env
     ],
-    // https: {
-    //   key: fs.readFileSync("./cert/vite.key"),   // your private key
-    //   cert: fs.readFileSync("./cert/vite.crt"),  // your certificate
-    // }
-  }
+  },
+  // Inject code at build time to allow crawling access from snipcart
+  plugins: [
+    {
+      name: "inject-snipcart-html",
+      transformIndexHtml(html) {
+        const products = fs.readFileSync(
+          "public/snipcart-products.html",
+          "utf-8"
+        );
+
+        return html.replace(
+          "<!-- injected at build time -->",
+          products
+        );
+      },
+    },
+  ],
+
+
 });

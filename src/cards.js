@@ -1,12 +1,17 @@
-export function renderCards(cards) {
+import inventory from "./inventory.json";
+
+// Render cards to UI
+export function renderCards() {
     const grid = document.getElementById("card-grid");
     grid.innerHTML = "";
-  
-    cards.forEach(card => {
-      const el = document.createElement("div");
-      el.className = "card";
-  
-      el.innerHTML = `
+
+    // Create section for each card in the inventory json
+    inventory.forEach(card => {
+        const el = document.createElement("div");
+        el.className = "card";
+
+        // Set inner html
+        el.innerHTML = `
         <div class="image-scroll">
           ${card.images.map(img => `<img src="${img}" alt="${card.name}" />`).join("")}
         </div>
@@ -16,7 +21,7 @@ export function renderCards(cards) {
           <p class="set">${card.set} • ${card.number}</p>
           <p class="meta">${card.rarity} • ${card.condition}</p>
           <p class="price">$${card.price.toFixed(2)}</p>
-  
+
           <button
             class="snipcart-add-item"
             data-item-id="${card.id}"
@@ -32,8 +37,7 @@ export function renderCards(cards) {
           </button>
         </div>
       `;
-  
-      grid.appendChild(el);
+
+        grid.appendChild(el);
     });
-  }
-  
+}
