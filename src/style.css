@@ -1,0 +1,114 @@
+/* ===== Layout ===== */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  margin: 0;
+  background: #f6f7f9;
+  color: #222;
+}
+
+/* ===== Header ===== */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #111;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.site-header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-size: 0.95rem;
+}
+
+.site-header nav a.cart {
+  font-weight: bold;
+}
+
+/* ===== Main ===== */
+main {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+/* ===== Card Grid ===== */
+#card-grid {
+  display: grid;
+  /* smaller cards: 200px min width instead of 260px */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.image-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; /* smooth momentum scrolling on iOS */
+}
+
+.image-scroll img {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  border-radius: 6px;
+  max-height: 250px; /* optional: cap the height */
+  object-fit: contain; /* keeps aspect ratio */
+}
+
+.card-info {
+  padding: 0.75rem;
+}
+
+.card-info h3 {
+  margin: 0.25rem 0;
+}
+
+.set {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.meta {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #2a9d8f;
+}
+
+button {
+  width: 100%;
+  padding: 0.5rem;
+  background: #ef476f;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
